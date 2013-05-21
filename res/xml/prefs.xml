@@ -65,8 +65,8 @@
     >
         <intent 
             android:action="android.intent.action.MAIN"
-            android:targetPackage="org.envaya.sms"
-            android:targetClass="org.envaya.sms.ui.ExpansionPacks" /> 
+            android:targetPackage="com.istresearch.sms"
+            android:targetClass="com.istresearch.sms.ui.ExpansionPacks" /> 
     </PreferenceScreen>               
         
     <CheckBoxPreference
@@ -83,8 +83,8 @@
     >        
        <intent 
             android:action="android.intent.action.MAIN"
-            android:targetPackage="org.envaya.sms"
-            android:targetClass="org.envaya.sms.ui.IgnoredPhoneNumbers" />
+            android:targetPackage="com.istresearch.sms"
+            android:targetClass="com.istresearch.sms.ui.IgnoredPhoneNumbers" />
     </PreferenceScreen>
     
     <CheckBoxPreference
@@ -102,8 +102,8 @@
     >
        <intent 
             android:action="android.intent.action.MAIN"
-            android:targetPackage="org.envaya.sms"
-            android:targetClass="org.envaya.sms.ui.TestPhoneNumbers" />
+            android:targetPackage="com.istresearch.sms"
+            android:targetClass="com.istresearch.sms.ui.TestPhoneNumbers" />
     </PreferenceScreen>        
     
     </PreferenceCategory>   
@@ -209,8 +209,8 @@
         >
        <intent 
             android:action="android.intent.action.MAIN"
-            android:targetPackage="org.envaya.sms"
-            android:targetClass="org.envaya.sms.ui.Help" />
+            android:targetPackage="com.istresearch.sms"
+            android:targetClass="com.istresearch.sms.ui.Help" />
     </PreferenceScreen>
     </PreferenceCategory>
 
