@@ -18,17 +18,10 @@ import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 import org.w3c.dom.Document;
-<<<<<<< HEAD:src/com/istresearch/ujumbesms/task/BaseHttpTask.java
 import com.istresearch.ujumbesms.R;
 
 import com.istresearch.ujumbesms.App;
 import com.istresearch.ujumbesms.JsonUtils;
-=======
-
-import com.istresearch.ujumbesms.App;
-import com.istresearch.ujumbesms.JsonUtils;
-import com.istresearch.ujumbesms.R;
->>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/task/BaseHttpTask.java
 import com.istresearch.ujumbesms.XmlUtils;
 
 public class BaseHttpTask extends AsyncTask<String, Void, HttpResponse> {

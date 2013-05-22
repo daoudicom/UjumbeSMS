@@ -1,22 +1,10 @@
 package com.istresearch.ujumbesms.ui;
-<<<<<<< HEAD:src/com/istresearch/ujumbesms/ui/LogView.java
-=======
-
-import java.util.List;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.message.BasicNameValuePair;
->>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/ui/LogView.java
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.DialogInterface;
+import android.content.*;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -29,7 +17,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
-<<<<<<< HEAD:src/com/istresearch/ujumbesms/ui/LogView.java
 import org.apache.http.HttpResponse;
 import org.apache.http.message.BasicNameValuePair;
 import com.istresearch.ujumbesms.R;
@@ -39,12 +26,6 @@ import com.istresearch.ujumbesms.task.HttpTask;
 
 import java.util.ArrayList;
 import java.util.List;
-=======
-
-import com.istresearch.ujumbesms.App;
-import com.istresearch.ujumbesms.R;
-import com.istresearch.ujumbesms.task.HttpTask;
->>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/ui/LogView.java
 
 public class LogView extends Activity {   
 	
@@ -349,6 +330,9 @@ public class LogView extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
+        case R.id.settings:
+            startActivity(new Intent(this, Prefs.class));
+            return true;
         case R.id.check_now:              
             app.checkOutgoingMessages();
             return true;
@@ -372,33 +356,11 @@ public class LogView extends Activity {
     
     // first time the Menu key is pressed
     @Override
-    public boolean onCreateOptionsMenu(Menu aMenu) {
-        getMenuInflater().inflate(R.menu.mainmenu, aMenu);
-
-        /*
-	     * PREFERENCE activity - Add the Prefs Activity menu item
-	     * even though as of Android 2.2, addIntentOptions only gets first one found, we only want 1
-	     */
-		Intent prefsActivity = new Intent(this,Prefs.class);
-		prefsActivity.addCategory(Intent.CATEGORY_PREFERENCE);
-		prefsActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-	    // Get the settings activity and use most of it's definitions to auto-handle menu item
-    	MenuItem theSettingsTemplate = aMenu.findItem(R.id.menu_item_settings);
-    	aMenu.removeItem(R.id.menu_item_settings);
-		aMenu.addIntentOptions(
-			 theSettingsTemplate.getGroupId(),	// Menu group to which new items will be added
-			 theSettingsTemplate.getItemId(),	// Unique item ID
-			 theSettingsTemplate.getOrder(),	// Order for the item
-		     getComponentName(),		// The current Activity name
-		     null,						// Specific items to place first (none)
-		     prefsActivity,				// Intent created above that describes our requirements
-		     0,							// Additional flags to control items (none)
-		     null);	// Array of MenuItems that correlate to specific items (none)
-		//Android Market will not allow android drawables as part of the Manifest xml
-		MenuItem theSettingsItem = aMenu.findItem(R.id.menu_item_settings);
-		theSettingsItem.setIcon(android.R.drawable.ic_menu_preferences);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.mainmenu, menu);
         
-        return true;
+        return(true);
     }
 
     @Override

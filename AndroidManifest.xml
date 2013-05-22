@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
       package="com.istresearch.ujumbesms"
       android:versionCode="30"
       android:versionName="3.0.1">
-=======
-    package="com.istresearch.ujumbesms"
-    android:versionCode="1"
-    android:versionName="1.0" >
->>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83
          
-    <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="17" />
+    <uses-sdk android:minSdkVersion="4" />
          
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />              
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />              
@@ -30,25 +22,14 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <application android:name="com.istresearch.ujumbesms.App"
-<<<<<<< HEAD
         android:icon="@drawable/icon" android:label="@string/app_name">
         <activity android:name="com.istresearch.ujumbesms.ui.Main" android:label="@string/app_name" android:noHistory="true">
-=======
-        android:icon="@drawable/icon" 
-        android:label="@string/app_name" 
-        android:theme="@style/AppTheme" 
-        android:allowBackup="false" >
-        <activity android:name="com.istresearch.ujumbesms.ui.Main" 
-            android:label="@string/app_name" 
-            android:noHistory="true">
->>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>        
 
-<<<<<<< HEAD
         <activity android:name="com.istresearch.ujumbesms.ui.LogView" android:label="@string/log_view_title">
         </activity>        
 
@@ -77,51 +58,6 @@
         </activity>
         
         <activity android:name="com.istresearch.ujumbesms.ui.ExpansionPacks" android:label="...">
-=======
-        <activity android:name="com.istresearch.ujumbesms.ui.LogView" 
-            android:label="@string/log_view_title">
-        </activity>        
-
-        <activity android:name="com.istresearch.ujumbesms.ui.Help" 
-            android:label="@string/help_title">
-        </activity>        
-
-        <activity android:name="com.istresearch.ujumbesms.ui.TestPhoneNumbers" 
-            android:label="@string/test_phone_numbers_title">
-        </activity>                
-        
-        <activity android:name="com.istresearch.ujumbesms.ui.IgnoredPhoneNumbers" 
-            android:label="@string/ignored_phone_numbers_title">
-        </activity>                        
-        
-        <activity android:name="com.istresearch.ujumbesms.ui.MessagingSmsInbox" 
-            android:label="@string/forward_saved_title">
-        </activity>        
-
-        <activity android:name="com.istresearch.ujumbesms.ui.MessagingMmsInbox" 
-            android:label="@string/forward_saved_title">
-        </activity>        
-        
-        <activity android:name="com.istresearch.ujumbesms.ui.MessagingSentSms" 
-            android:label="@string/forward_saved_title">
-        </activity>
-        
-        <activity android:name="com.istresearch.ujumbesms.ui.PendingMessages" 
-            android:label="@string/pending_messages_title">
-        </activity>
-
-        <activity android:name="com.istresearch.ujumbesms.ui.Prefs" 
-            android:label="@string/settings" 
-            android:enabled="true" >
-			<intent-filter>
-				<category android:name="android.intent.category.PREFERENCE" />
-			</intent-filter>
-		</activity>
-        
-        
-        <activity android:name="com.istresearch.ujumbesms.ui.ExpansionPacks" 
-            android:label="...">
->>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83
         </activity>        
 
         <receiver android:name="com.istresearch.ujumbesms.receiver.SmsReceiver">
@@ -137,24 +73,14 @@
             </intent-filter>            
         </receiver>
         
-<<<<<<< HEAD
         <reciever android:name="com.istresearch.ujumbesms.receiver.MessageStatusNotifier" android:exported="true">
-=======
-        <receiver android:name="com.istresearch.ujumbesms.receiver.MessageStatusNotifier" 
-            android:exported="true">
->>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83
             <intent-filter>
                 <action android:name="com.istresearch.ujumbesms.MESSAGE_STATUS" />
                 <data android:scheme="content" />
             </intent-filter>
         </reciever>
 
-<<<<<<< HEAD
         <receiver android:name="com.istresearch.ujumbesms.receiver.NudgeReceiver" android:exported="true">
-=======
-        <receiver android:name="com.istresearch.ujumbesms.receiver.NudgeReceiver" 
-            android:exported="true">
->>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83
             <intent-filter>
                 <action android:name="com.istresearch.ujumbesms.NUDGE" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" /> 
@@ -166,17 +92,13 @@
             
         <receiver android:name=".receiver.MessageDeliveryNotifier" android:exported="true">
             <intent-filter>
-                <action android:name="com.istresearch.ujumbesms.MESSAGE_DELIVERY" />
+                <action android:name="org.envaya.sms.MESSAGE_DELIVERY" />
                 <data android:scheme="content" />
             </intent-filter>
         </receiver>
         -->
 
-<<<<<<< HEAD
        <receiver android:name="com.istresearch.ujumbesms.receiver.DequeueOutgoingMessageReceiver">
-=======
-        <receiver android:name="com.istresearch.ujumbesms.receiver.DequeueOutgoingMessageReceiver">
->>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83
         </receiver>
 
         <receiver android:name="com.istresearch.ujumbesms.receiver.OutgoingMessageTimeout">

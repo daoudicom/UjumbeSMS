@@ -14,17 +14,10 @@ import android.view.View;
 import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
-<<<<<<< HEAD:src/com/istresearch/ujumbesms/ui/MessagingForwarder.java
 import com.istresearch.ujumbesms.R;
 
 import com.istresearch.ujumbesms.App;
 import com.istresearch.ujumbesms.IncomingMessage;
-=======
-
-import com.istresearch.ujumbesms.App;
-import com.istresearch.ujumbesms.IncomingMessage;
-import com.istresearch.ujumbesms.R;
->>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/ui/MessagingForwarder.java
 
 import java.util.Arrays;
 
@@ -47,9 +40,9 @@ public abstract class MessagingForwarder extends ListActivity {
         setContentView(R.layout.inbox);
         
         final String[] inboxTypeClasses = new String[] {
-                "com.istresearch.sms.ui.MessagingSmsInbox", 
-                "com.istresearch.sms.ui.MessagingMmsInbox",
-                "com.istresearch.sms.ui.MessagingSentSms",
+                "org.envaya.sms.ui.MessagingSmsInbox", 
+                "org.envaya.sms.ui.MessagingMmsInbox",
+                "org.envaya.sms.ui.MessagingSentSms",
         };
         
         final String[] inboxTypeNames = new String[] {

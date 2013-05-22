@@ -14,15 +14,9 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-<<<<<<< HEAD:src/com/istresearch/ujumbesms/ui/TestPhoneNumbers.java
 import com.istresearch.ujumbesms.R;
 
 import com.istresearch.ujumbesms.App;
-=======
-
-import com.istresearch.ujumbesms.App;
-import com.istresearch.ujumbesms.R;
->>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/ui/TestPhoneNumbers.java
 
 public class TestPhoneNumbers extends ListActivity {
     

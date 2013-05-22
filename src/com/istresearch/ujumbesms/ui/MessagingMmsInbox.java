@@ -6,17 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-<<<<<<< HEAD:src/com/istresearch/ujumbesms/ui/MessagingMmsInbox.java
 import com.istresearch.ujumbesms.R;
 
 import com.istresearch.ujumbesms.IncomingMessage;
 import com.istresearch.ujumbesms.IncomingMms;
-=======
-
-import com.istresearch.ujumbesms.IncomingMessage;
-import com.istresearch.ujumbesms.IncomingMms;
-import com.istresearch.ujumbesms.R;
->>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/ui/MessagingMmsInbox.java
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

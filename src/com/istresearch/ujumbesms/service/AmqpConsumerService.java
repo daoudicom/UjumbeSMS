@@ -2,13 +2,8 @@ package com.istresearch.ujumbesms.service;
 
 import android.app.IntentService;
 import android.content.Intent;
-<<<<<<< HEAD:src/com/istresearch/ujumbesms/service/AmqpConsumerService.java
 import com.istresearch.ujumbesms.AmqpConsumer;
 
-=======
-
-import com.istresearch.ujumbesms.AmqpConsumer;
->>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/service/AmqpConsumerService.java
 import com.istresearch.ujumbesms.App;
 
 public class AmqpConsumerService extends IntentService {

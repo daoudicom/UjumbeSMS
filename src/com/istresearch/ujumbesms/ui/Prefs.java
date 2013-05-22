@@ -1,31 +1,20 @@
 package com.istresearch.ujumbesms.ui;
 
+import android.content.SharedPreferences;
 import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
+import android.content.Context;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
-import android.preference.EditTextPreference;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceScreen;
+import android.preference.*;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.text.method.PasswordTransformationMethod;
 import android.view.Menu;
-<<<<<<< HEAD:src/com/istresearch/ujumbesms/ui/Prefs.java
 import com.istresearch.ujumbesms.R;
 
 import com.istresearch.ujumbesms.App;
-=======
-
-import com.istresearch.ujumbesms.App;
-import com.istresearch.ujumbesms.R;
->>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/ui/Prefs.java
 
 public class Prefs extends PreferenceActivity implements OnSharedPreferenceChangeListener {
 

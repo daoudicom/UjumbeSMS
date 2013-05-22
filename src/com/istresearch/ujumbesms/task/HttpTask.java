@@ -3,15 +3,6 @@
  * and open the template in the editor.
  */
 package com.istresearch.ujumbesms.task;
-<<<<<<< HEAD:src/com/istresearch/ujumbesms/task/HttpTask.java
-=======
-
-import com.istresearch.ujumbesms.App;
-import com.istresearch.ujumbesms.Base64Coder;
-import com.istresearch.ujumbesms.JsonUtils;
-import com.istresearch.ujumbesms.OutgoingMessage;
-import com.istresearch.ujumbesms.XmlUtils;
->>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/task/HttpTask.java
 
 import android.content.Intent;
 import android.content.IntentFilter;

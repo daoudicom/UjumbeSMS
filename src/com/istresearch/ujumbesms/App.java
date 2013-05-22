@@ -40,16 +40,6 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
-<<<<<<< HEAD:src/com/istresearch/ujumbesms/App.java
-=======
-
-import com.istresearch.ujumbesms.receiver.OutgoingMessagePoller;
-import com.istresearch.ujumbesms.service.EnabledChangedService;
-import com.istresearch.ujumbesms.task.CheckConnectivityTask;
-import com.istresearch.ujumbesms.task.HttpTask;
-import com.istresearch.ujumbesms.task.PollerTask;
-
->>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/App.java
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -94,16 +84,16 @@ public final class App extends Application {
     public static final String LOG_NAME = "EnvayaSMS";
     
     // intent to signal to Main activity (if open) that log has changed
-    public static final String LOG_CHANGED_INTENT = "com.istresearch.sms.LOG_CHANGED";
-    public static final String SETTINGS_CHANGED_INTENT = "com.istresearch.sms.SETTINGS_CHANGED";
+    public static final String LOG_CHANGED_INTENT = "org.envaya.sms.LOG_CHANGED";
+    public static final String SETTINGS_CHANGED_INTENT = "org.envaya.sms.SETTINGS_CHANGED";
     
-    public static final String EXPANSION_PACKS_CHANGED_INTENT = "com.istresearch.sms.EXPANSION_PACKS_CHANGED";
+    public static final String EXPANSION_PACKS_CHANGED_INTENT = "org.envaya.sms.EXPANSION_PACKS_CHANGED";
             
     // signal to PendingMessages activity (if open) that inbox/outbox has changed
-    public static final String INBOX_CHANGED_INTENT = "com.istresearch.sms.INBOX_CHANGED";
-    public static final String OUTBOX_CHANGED_INTENT = "com.istresearch.sms.OUTBOX_CHANGED";
+    public static final String INBOX_CHANGED_INTENT = "org.envaya.sms.INBOX_CHANGED";
+    public static final String OUTBOX_CHANGED_INTENT = "org.envaya.sms.OUTBOX_CHANGED";
                     
-    public static final String QUERY_EXPANSION_PACKS_INTENT = "com.istresearch.sms.QUERY_EXPANSION_PACKS";
+    public static final String QUERY_EXPANSION_PACKS_INTENT = "org.envaya.sms.QUERY_EXPANSION_PACKS";
     public static final String QUERY_EXPANSION_PACKS_EXTRA_PACKAGES = "packages";    
     
     // Interface for sending outgoing messages to expansion packs
@@ -115,8 +105,8 @@ public final class App extends Application {
     
     // intent for MessageStatusNotifier to receive status updates for outgoing SMS
     // (even if sent by an expansion pack)
-    public static final String MESSAGE_STATUS_INTENT = "com.istresearch.sms.MESSAGE_STATUS";
-    public static final String MESSAGE_DELIVERY_INTENT = "com.istresearch.sms.MESSAGE_DELIVERY";    
+    public static final String MESSAGE_STATUS_INTENT = "org.envaya.sms.MESSAGE_STATUS";
+    public static final String MESSAGE_DELIVERY_INTENT = "org.envaya.sms.MESSAGE_DELIVERY";    
     
     public static final String STATUS_EXTRA_INDEX = "status";
     public static final String STATUS_EXTRA_NUM_PARTS = "num_parts";            
@@ -132,7 +122,7 @@ public final class App extends Application {
     // Each QueuedMessage is identified within our internal Map by its Uri.
     // Currently QueuedMessage instances are only available within EnvayaSMS,
     // (but they could be made available to other applications later via a ContentProvider)
-    public static final Uri CONTENT_URI = Uri.parse("content://com.istresearch.sms");
+    public static final Uri CONTENT_URI = Uri.parse("content://org.envaya.sms");
     public static final Uri INCOMING_URI = Uri.withAppendedPath(CONTENT_URI, "incoming");
     public static final Uri OUTGOING_URI = Uri.withAppendedPath(CONTENT_URI, "outgoing");
     
@@ -162,7 +152,7 @@ public final class App extends Application {
     
     private PackageInfo packageInfo;
     
-    // list of package names (e.g. com.istresearch.sms, or com.istresearch.sms.packXX)
+    // list of package names (e.g. org.envaya.sms, or org.envaya.sms.packXX)
     // for this package and all expansion packs
     private List<String> outgoingMessagePackages = new ArrayList<String>();
                 
