@@ -15,6 +15,12 @@
  */
 
 package com.istresearch.ujumbesms.service;
+<<<<<<< HEAD:src/com/istresearch/ujumbesms/service/ForegroundService.java
+=======
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/service/ForegroundService.java
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -23,12 +29,18 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
+<<<<<<< HEAD:src/com/istresearch/ujumbesms/service/ForegroundService.java
 import com.istresearch.ujumbesms.R;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import com.istresearch.ujumbesms.App;
+=======
+
+import com.istresearch.ujumbesms.App;
+import com.istresearch.ujumbesms.R;
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/service/ForegroundService.java
 import com.istresearch.ujumbesms.ui.Main;
 
 /*

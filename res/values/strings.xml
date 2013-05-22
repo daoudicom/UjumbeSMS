@@ -18,9 +18,9 @@
     <string name="test">Test Connection</string>
     <string name="check_now">Check Messages</string>
     <string name="help">Help</string>
-    <string name="pending">Pending Msgs...</string>
+    <string name="pending">Pending Msgs…</string>
     <string name="retry_now">Retry</string>
-    <string name="forward_saved">Fwd Saved...</string>
+    <string name="forward_saved">Fwd Saved…</string>
     <string name='service_started'>New messages will be forwarded to server</string>
     <string name='test_phone_numbers'>When running UjumbeSMS in Test Mode, 
 UjumbeSMS will only forward SMS messages from the phone numbers 

@@ -65,8 +65,13 @@
     >
         <intent 
             android:action="android.intent.action.MAIN"
+<<<<<<< HEAD
             android:targetPackage="com.istresearch.ujumbesms"
             android:targetClass="com.istresearch.ujumbesms.ui.ExpansionPacks" /> 
+=======
+            android:targetPackage="com.istresearch.sms"
+            android:targetClass="com.istresearch.sms.ui.ExpansionPacks" /> 
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83
     </PreferenceScreen>               
         
     <CheckBoxPreference
@@ -83,8 +88,13 @@
     >        
        <intent 
             android:action="android.intent.action.MAIN"
+<<<<<<< HEAD
             android:targetPackage="com.istresearch.ujumbesms"
             android:targetClass="com.istresearch.ujumbesms.ui.IgnoredPhoneNumbers" />
+=======
+            android:targetPackage="com.istresearch.sms"
+            android:targetClass="com.istresearch.sms.ui.IgnoredPhoneNumbers" />
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83
     </PreferenceScreen>
     
     <CheckBoxPreference
@@ -102,8 +112,13 @@
     >
        <intent 
             android:action="android.intent.action.MAIN"
+<<<<<<< HEAD
             android:targetPackage="com.istresearch.ujumbesms"
             android:targetClass="com.istresearch.ujumbesms.ui.TestPhoneNumbers" />
+=======
+            android:targetPackage="com.istresearch.sms"
+            android:targetClass="com.istresearch.sms.ui.TestPhoneNumbers" />
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83
     </PreferenceScreen>        
     
     </PreferenceCategory>   
@@ -209,8 +224,13 @@
         >
        <intent 
             android:action="android.intent.action.MAIN"
+<<<<<<< HEAD
             android:targetPackage="com.istresearch.ujumbesms"
             android:targetClass="com.istresearch.ujumbesms.ui.Help" />
+=======
+            android:targetPackage="com.istresearch.sms"
+            android:targetClass="com.istresearch.sms.ui.Help" />
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83
     </PreferenceScreen>
     </PreferenceCategory>
 

@@ -3,7 +3,10 @@ package com.istresearch.ujumbesms.ui;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+<<<<<<< HEAD:src/com/istresearch/ujumbesms/ui/Main.java
 
+=======
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/ui/Main.java
 import com.istresearch.ujumbesms.App;
 import com.istresearch.ujumbesms.ui.LogView;
 import com.istresearch.ujumbesms.ui.Prefs;

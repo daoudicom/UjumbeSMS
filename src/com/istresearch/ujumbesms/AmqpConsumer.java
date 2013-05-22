@@ -1,6 +1,23 @@
 package com.istresearch.ujumbesms;
 
+<<<<<<< HEAD:src/com/istresearch/ujumbesms/AmqpConsumer.java
 import com.istresearch.ujumbesms.service.AmqpConsumerService;
+=======
+import java.io.IOException;
+import java.security.SecureRandom;
+import java.util.concurrent.Delayed;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/AmqpConsumer.java
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -9,6 +26,7 @@ import android.net.wifi.WifiManager;
 import android.os.SystemClock;
 
 import com.istresearch.ujumbesms.receiver.StartAmqpConsumer;
+<<<<<<< HEAD:src/com/istresearch/ujumbesms/AmqpConsumer.java
 import com.istresearch.ujumbesms.service.AmqpHeartbeatService;
 import com.istresearch.ujumbesms.task.HttpTask;
 import com.rabbitmq.client.ConnectionFactory;
@@ -28,6 +46,17 @@ import javax.net.ssl.TrustManager;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
+=======
+import com.istresearch.ujumbesms.service.AmqpConsumerService;
+import com.istresearch.ujumbesms.service.AmqpHeartbeatService;
+import com.istresearch.ujumbesms.task.HttpTask;
+import com.rabbitmq.client.AlreadyClosedException;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.QueueingConsumer;
+import com.rabbitmq.client.ShutdownSignalException;
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/AmqpConsumer.java
 
 public class AmqpConsumer {
 

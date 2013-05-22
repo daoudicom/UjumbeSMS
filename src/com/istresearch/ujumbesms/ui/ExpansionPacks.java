@@ -9,9 +9,15 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.view.Menu;
+<<<<<<< HEAD:src/com/istresearch/ujumbesms/ui/ExpansionPacks.java
 import com.istresearch.ujumbesms.R;
 
 import com.istresearch.ujumbesms.App;
+=======
+
+import com.istresearch.ujumbesms.App;
+import com.istresearch.ujumbesms.R;
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/ui/ExpansionPacks.java
 
 public class ExpansionPacks extends PreferenceActivity  {
     

@@ -7,7 +7,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
+<<<<<<< HEAD:src/com/istresearch/ujumbesms/service/EnabledChangedService.java
 
+=======
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/service/EnabledChangedService.java
 import com.istresearch.ujumbesms.App;
 import com.istresearch.ujumbesms.receiver.NudgeReceiver;
 

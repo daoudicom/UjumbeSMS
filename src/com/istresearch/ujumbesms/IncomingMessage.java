@@ -2,6 +2,13 @@ package com.istresearch.ujumbesms;
 
 import android.content.Intent;
 import android.os.SystemClock;
+<<<<<<< HEAD:src/com/istresearch/ujumbesms/IncomingMessage.java
+=======
+
+import com.istresearch.ujumbesms.receiver.IncomingMessageRetry;
+import com.istresearch.ujumbesms.task.ForwarderTask;
+
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/IncomingMessage.java
 import org.apache.http.message.BasicNameValuePair;
 
 import com.istresearch.ujumbesms.receiver.IncomingMessageRetry;

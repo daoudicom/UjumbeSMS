@@ -4,7 +4,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import org.apache.http.message.BasicNameValuePair;
+<<<<<<< HEAD:src/com/istresearch/ujumbesms/receiver/DeviceStatusReceiver.java
 
+=======
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/receiver/DeviceStatusReceiver.java
 import com.istresearch.ujumbesms.App;
 import com.istresearch.ujumbesms.task.HttpTask;
 

@@ -8,7 +8,10 @@ import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.SystemClock;
+<<<<<<< HEAD:src/com/istresearch/ujumbesms/task/CheckConnectivityTask.java
 
+=======
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/task/CheckConnectivityTask.java
 import com.istresearch.ujumbesms.App;
 import com.istresearch.ujumbesms.receiver.ReenableWifiReceiver;
 

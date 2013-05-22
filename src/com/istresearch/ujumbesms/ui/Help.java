@@ -10,9 +10,15 @@ import android.preference.PreferenceManager;
 import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
+<<<<<<< HEAD:src/com/istresearch/ujumbesms/ui/Help.java
 import com.istresearch.ujumbesms.R;
 
 import com.istresearch.ujumbesms.App;
+=======
+
+import com.istresearch.ujumbesms.App;
+import com.istresearch.ujumbesms.R;
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/ui/Help.java
 
 public class Help extends Activity {
 

@@ -2,7 +2,17 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+<<<<<<< HEAD
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+=======
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry exported="true" kind="lib" path="libs/rabbitmq-client.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/commons-cli-1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/commons-io-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/httpmime-4.1.2.jar"/>
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

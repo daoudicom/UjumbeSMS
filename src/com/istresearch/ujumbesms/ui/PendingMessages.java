@@ -28,12 +28,19 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+<<<<<<< HEAD:src/com/istresearch/ujumbesms/ui/PendingMessages.java
 import com.istresearch.ujumbesms.R;
+=======
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/ui/PendingMessages.java
 
 import com.istresearch.ujumbesms.App;
 import com.istresearch.ujumbesms.IncomingMessage;
 import com.istresearch.ujumbesms.OutgoingMessage;
 import com.istresearch.ujumbesms.QueuedMessage;
+<<<<<<< HEAD:src/com/istresearch/ujumbesms/ui/PendingMessages.java
+=======
+import com.istresearch.ujumbesms.R;
+>>>>>>> 40c527446f08d9368acbf2b7cfb985fe12567e83:src/com/istresearch/ujumbesms/ui/PendingMessages.java
 
 
 public class PendingMessages extends ListActivity {
