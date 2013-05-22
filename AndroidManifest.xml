@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.istresearch.ujumbesms"
+      package="org.envaya.sms"
       android:versionCode="30"
       android:versionName="3.0.1">
          
@@ -21,68 +21,68 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
-    <application android:name="com.istresearch.ujumbesms.App"
+    <application android:name="org.envaya.sms.App"
         android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:name="com.istresearch.ujumbesms.ui.Main" android:label="@string/app_name" android:noHistory="true">
+        <activity android:name="org.envaya.sms.ui.Main" android:label="@string/app_name" android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>        
 
-        <activity android:name="com.istresearch.ujumbesms.ui.LogView" android:label="@string/log_view_title">
+        <activity android:name="org.envaya.sms.ui.LogView" android:label="@string/log_view_title">
         </activity>        
 
-        <activity android:name="com.istresearch.ujumbesms.ui.Help" android:label="@string/help_title">
+        <activity android:name="org.envaya.sms.ui.Help" android:label="@string/help_title">
         </activity>        
 
-        <activity android:name="com.istresearch.ujumbesms.ui.TestPhoneNumbers" android:label="@string/test_phone_numbers_title">
+        <activity android:name="org.envaya.sms.ui.TestPhoneNumbers" android:label="@string/test_phone_numbers_title">
         </activity>                
         
-        <activity android:name="com.istresearch.ujumbesms.ui.IgnoredPhoneNumbers" android:label="@string/ignored_phone_numbers_title">
+        <activity android:name="org.envaya.sms.ui.IgnoredPhoneNumbers" android:label="@string/ignored_phone_numbers_title">
         </activity>                        
         
-        <activity android:name="com.istresearch.ujumbesms.ui.MessagingSmsInbox" android:label="@string/forward_saved_title">
+        <activity android:name="org.envaya.sms.ui.MessagingSmsInbox" android:label="@string/forward_saved_title">
         </activity>        
 
-        <activity android:name="com.istresearch.ujumbesms.ui.MessagingMmsInbox" android:label="@string/forward_saved_title">
+        <activity android:name="org.envaya.sms.ui.MessagingMmsInbox" android:label="@string/forward_saved_title">
         </activity>        
         
-        <activity android:name="com.istresearch.ujumbesms.ui.MessagingSentSms" android:label="@string/forward_saved_title">
+        <activity android:name="org.envaya.sms.ui.MessagingSentSms" android:label="@string/forward_saved_title">
         </activity>
         
-        <activity android:name="com.istresearch.ujumbesms.ui.PendingMessages" android:label="@string/pending_messages_title">
+        <activity android:name="org.envaya.sms.ui.PendingMessages" android:label="@string/pending_messages_title">
         </activity>
 
-        <activity android:name="com.istresearch.ujumbesms.ui.Prefs" android:label="@string/settings_title">
+        <activity android:name="org.envaya.sms.ui.Prefs" android:label="@string/settings_title">
         </activity>
         
-        <activity android:name="com.istresearch.ujumbesms.ui.ExpansionPacks" android:label="...">
+        <activity android:name="org.envaya.sms.ui.ExpansionPacks" android:label="...">
         </activity>        
 
-        <receiver android:name="com.istresearch.ujumbesms.receiver.SmsReceiver">
+        <receiver android:name="org.envaya.sms.receiver.SmsReceiver">
             <intent-filter android:priority="101">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver> 	
         
-        <receiver android:name="com.istresearch.ujumbesms.receiver.OutgoingSmsReceiver">
+        <receiver android:name="org.envaya.sms.receiver.OutgoingSmsReceiver">
             <intent-filter>
-                <action android:name="com.istresearch.ujumbesms.OUTGOING_SMS" />
+                <action android:name="org.envaya.sms.OUTGOING_SMS" />
                 <data android:scheme="content" />
             </intent-filter>            
         </receiver>
         
-        <reciever android:name="com.istresearch.ujumbesms.receiver.MessageStatusNotifier" android:exported="true">
+        <receiver android:name="org.envaya.sms.receiver.MessageStatusNotifier" android:exported="true">
             <intent-filter>
-                <action android:name="com.istresearch.ujumbesms.MESSAGE_STATUS" />
+                <action android:name="org.envaya.sms.MESSAGE_STATUS" />
                 <data android:scheme="content" />
             </intent-filter>
-        </reciever>
+        </receiver>
 
-        <receiver android:name="com.istresearch.ujumbesms.receiver.NudgeReceiver" android:exported="true">
+        <receiver android:name="org.envaya.sms.receiver.NudgeReceiver" android:exported="true">
             <intent-filter>
-                <action android:name="com.istresearch.ujumbesms.NUDGE" />
+                <action android:name="org.envaya.sms.NUDGE" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" /> 
             </intent-filter>
         </receiver>       
@@ -98,28 +98,28 @@
         </receiver>
         -->
 
-       <receiver android:name="com.istresearch.ujumbesms.receiver.DequeueOutgoingMessageReceiver">
+        <receiver android:name="org.envaya.sms.receiver.DequeueOutgoingMessageReceiver">
         </receiver>
 
-        <receiver android:name="com.istresearch.ujumbesms.receiver.OutgoingMessageTimeout">
+        <receiver android:name="org.envaya.sms.receiver.OutgoingMessageTimeout">
         </receiver>
 
-        <receiver android:name="com.istresearch.ujumbesms.receiver.OutgoingMessagePoller">
+        <receiver android:name="org.envaya.sms.receiver.OutgoingMessagePoller">
         </receiver>
         
-        <receiver android:name="com.istresearch.ujumbesms.receiver.OutgoingMessageRetry">
+        <receiver android:name="org.envaya.sms.receiver.OutgoingMessageRetry">
         </receiver>        
         
-        <receiver android:name="com.istresearch.ujumbesms.receiver.IncomingMessageRetry">
+        <receiver android:name="org.envaya.sms.receiver.IncomingMessageRetry">
         </receiver>            
         
-        <receiver android:name="com.istresearch.ujumbesms.receiver.ReenableWifiReceiver">
+        <receiver android:name="org.envaya.sms.receiver.ReenableWifiReceiver">
         </receiver>
         
-        <receiver android:name="com.istresearch.ujumbesms.receiver.StartAmqpConsumer">
+        <receiver android:name="org.envaya.sms.receiver.StartAmqpConsumer">
         </receiver>
         
-        <receiver android:name="com.istresearch.ujumbesms.receiver.ExpansionPackInstallReceiver">
+        <receiver android:name="org.envaya.sms.receiver.ExpansionPackInstallReceiver">
             <intent-filter> 
                  <action android:name="android.intent.action.PACKAGE_ADDED" /> 
                  <action android:name="android.intent.action.PACKAGE_REMOVED" /> 
@@ -128,13 +128,13 @@
             </intent-filter>            
         </receiver>        
         
-        <receiver android:name="com.istresearch.ujumbesms.receiver.ConnectivityChangeReceiver" >        
+        <receiver android:name="org.envaya.sms.receiver.ConnectivityChangeReceiver" >        
             <intent-filter> 
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter> 
-        </receiver>
+        </receiver>         
         
-        <receiver android:name="com.istresearch.ujumbesms.receiver.DeviceStatusReceiver"> 
+        <receiver android:name="org.envaya.sms.receiver.DeviceStatusReceiver"> 
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
@@ -143,19 +143,19 @@
             </intent-filter>
         </receiver>
         
-        <service android:name="com.istresearch.ujumbesms.service.CheckMessagingService">
+        <service android:name="org.envaya.sms.service.CheckMessagingService">
         </service>
 
-        <service android:name="com.istresearch.ujumbesms.service.EnabledChangedService">
+        <service android:name="org.envaya.sms.service.EnabledChangedService">
         </service>
 
-        <service android:name="com.istresearch.ujumbesms.service.ForegroundService">
+        <service android:name="org.envaya.sms.service.ForegroundService">
         </service>            
         
-        <service android:name="com.istresearch.ujumbesms.service.AmqpConsumerService">
+        <service android:name="org.envaya.sms.service.AmqpConsumerService">
         </service>                    
         
-        <service android:name="com.istresearch.ujumbesms.service.AmqpHeartbeatService">
+        <service android:name="org.envaya.sms.service.AmqpHeartbeatService">
         </service>                            
     </application>
 </manifest> 

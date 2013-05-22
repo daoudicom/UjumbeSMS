@@ -4,7 +4,7 @@
       
     <CheckBoxPreference
             android:key="enabled" 
-            android:title="Enable UjumbeSMS" 
+            android:title="Enable EnvayaSMS" 
             android:defaultValue='false'
             android:summaryOn="New messages will be forwarded between phone and server"
             android:summaryOff="New messages will not be forwarded between phone and server"
@@ -54,8 +54,8 @@
     <CheckBoxPreference
             android:key="call_notifications"
             android:title="Call notifications"
-            android:summaryOff="UjumbeSMS will not notify server when phone receives an incoming call"
-            android:summaryOn="UjumbeSMS will notify server when phone receives an incoming call"
+            android:summaryOff="EnvayaSMS will not notify server when phone receives an incoming call"
+            android:summaryOn="EnvayaSMS will notify server when phone receives an incoming call"
     ></CheckBoxPreference>    
         
     <PreferenceScreen 
@@ -65,8 +65,8 @@
     >
         <intent 
             android:action="android.intent.action.MAIN"
-            android:targetPackage="com.istresearch.ujumbesms"
-            android:targetClass="com.istresearch.ujumbesms.ui.ExpansionPacks" /> 
+            android:targetPackage="org.envaya.sms"
+            android:targetClass="org.envaya.sms.ui.ExpansionPacks" /> 
     </PreferenceScreen>               
         
     <CheckBoxPreference
@@ -83,15 +83,15 @@
     >        
        <intent 
             android:action="android.intent.action.MAIN"
-            android:targetPackage="com.istresearch.ujumbesms"
-            android:targetClass="com.istresearch.ujumbesms.ui.IgnoredPhoneNumbers" />
+            android:targetPackage="org.envaya.sms"
+            android:targetClass="org.envaya.sms.ui.IgnoredPhoneNumbers" />
     </PreferenceScreen>
     
     <CheckBoxPreference
             android:key="test_mode"
             android:title="Test mode"
-            android:summaryOff="Test mode is off (UjumbeSMS forwards all SMS)"
-            android:summaryOn="Test mode is on (UjumbeSMS only forwards SMS to/from specific phones)"
+            android:summaryOff="Test mode is off (EnvayaSMS forwards all SMS)"
+            android:summaryOn="Test mode is on (EnvayaSMS only forwards SMS to/from specific phones)"
     ></CheckBoxPreference>
     
     <PreferenceScreen 
@@ -102,8 +102,8 @@
     >
        <intent 
             android:action="android.intent.action.MAIN"
-            android:targetPackage="com.istresearch.ujumbesms"
-            android:targetClass="com.istresearch.ujumbesms.ui.TestPhoneNumbers" />
+            android:targetPackage="org.envaya.sms"
+            android:targetClass="org.envaya.sms.ui.TestPhoneNumbers" />
     </PreferenceScreen>        
     
     </PreferenceCategory>   
@@ -205,12 +205,12 @@
     <PreferenceCategory android:title="Help">
     <PreferenceScreen 
             android:key="help" 
-            android:title="About UjumbeSMS"
+            android:title="About EnvayaSMS"
         >
        <intent 
             android:action="android.intent.action.MAIN"
-            android:targetPackage="com.istresearch.ujumbesms"
-            android:targetClass="com.istresearch.ujumbesms.ui.Help" />
+            android:targetPackage="org.envaya.sms"
+            android:targetClass="org.envaya.sms.ui.Help" />
     </PreferenceScreen>
     </PreferenceCategory>
 
