@@ -1,6 +1,29 @@
 package com.istresearch.ujumbesms;
 
-import com.istresearch.ujumbesms.service.EnabledChangedService;
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+
+import org.apache.http.client.HttpClient;
+import org.apache.http.conn.scheme.PlainSocketFactory;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.params.HttpProtocolParams;
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.Application;
@@ -18,36 +41,15 @@ import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.preference.PreferenceManager;
-import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.util.Log;
-import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import org.apache.http.client.HttpClient;
-import org.apache.http.conn.scheme.PlainSocketFactory;
-import org.apache.http.conn.scheme.Scheme;
-import org.apache.http.conn.scheme.SchemeRegistry;
-import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
-import org.apache.http.params.HttpProtocolParams;
+
 import com.istresearch.ujumbesms.receiver.OutgoingMessagePoller;
+import com.istresearch.ujumbesms.service.EnabledChangedService;
 import com.istresearch.ujumbesms.task.CheckConnectivityTask;
 import com.istresearch.ujumbesms.task.HttpTask;
 import com.istresearch.ujumbesms.task.PollerTask;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.istresearch.ujumbesms.ui.AppPrefs;
 
 public final class App extends Application {
     
@@ -174,6 +176,10 @@ public final class App extends Application {
     {
         super.onCreate();
         
+        //TODO: RTF: we need to examine all AsyncTasks to be sure they are supposed to be
+        //  run from the UI thread.  Any that aren't, convert to our Library ThreadTasks.
+        //  The following workaround is a bad bandaid on a deeper issue.
+        
         // workaround for http://code.google.com/p/android/issues/detail?id=20915
         try
         {
@@ -183,7 +189,7 @@ public final class App extends Application {
         {
         }
         
-        settings = PreferenceManager.getDefaultSharedPreferences(this);        
+        settings = AppPrefs.getPrefs(this);        
         messagingUtils = new MessagingUtils(this);
         
         callListener = new CallListener(this);  
@@ -471,11 +477,11 @@ public final class App extends Application {
     }    
     
     public String getServerUrl() {
-        return settings.getString("server_url", "");
+        return settings.getString(getString(R.string.pref_key_server_url), "");
     }
 
     public String getPhoneNumber() {
-        return settings.getString("phone_number", "");
+        return settings.getString(getString(R.string.pref_key_phone_number), "");
     }
     
     public boolean isAmqpEnabled()
@@ -494,12 +500,12 @@ public final class App extends Application {
     
     public int getOutgoingPollSeconds() 
     {
-        return tryGetIntegerSetting("outgoing_interval", 0);
+        return tryGetIntegerSetting(getString(R.string.pref_key_poll_interval), 0);
     }
 
     public boolean isEnabled()
     {
-        return tryGetBooleanSetting("enabled", false);
+        return tryGetBooleanSetting(getString(R.string.pref_key_enabled), false);
     }
     
     public String tryGetStringSetting(String name, String defaultValue)
@@ -533,7 +539,7 @@ public final class App extends Application {
     
     public boolean isNetworkFailoverEnabled()
     {
-        return tryGetBooleanSetting("network_failover", false);
+        return tryGetBooleanSetting(getString(R.string.pref_key_network_failover), false);
     }
     
     public boolean isForwardingSentMessagesEnabled()
@@ -572,7 +578,7 @@ public final class App extends Application {
     }
 
     public String getPassword() {
-        return settings.getString("password", "");
+        return settings.getString(getString(R.string.pref_key_server_pw), "");
     }
 
     public synchronized void retryStuckMessages() {        
@@ -991,7 +997,7 @@ public final class App extends Application {
         Uri serverUrl = Uri.parse(getServerUrl());
         String hostName = serverUrl.getHost();
 
-        log("Checking connectivity to "+hostName+"...");
+        log("Checking connectivity to "+hostName+"…");
         
         checkConnectivityTask = new CheckConnectivityTask(this, hostName, networkType);
         checkConnectivityTask.execute();

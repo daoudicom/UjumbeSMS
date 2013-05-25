@@ -121,28 +121,27 @@ public class BaseHttpTask extends AsyncTask<String, Void, HttpResponse> {
         return null;
     }    
            
-    protected String getErrorText(HttpResponse response)    
-            throws Exception
-    {
-        String contentType = getContentType(response);
-        String error = null;
+    protected String getErrorText(HttpResponse response) throws Exception {
+    	String contentType = getContentType(response);
+    	String error = null;
+    
+    	try {
+        	if (contentType.startsWith("application/json")) {
+        		JSONObject json = JsonUtils.parseResponse(response);
+        		error = JsonUtils.getErrorText(json);
+        	} else if (contentType.startsWith("text/xml")) {
+        		Document xml = XmlUtils.parseResponse(response);
+        		error = XmlUtils.getErrorText(xml);
+        	}
+    	} catch (Exception e) {
+    		//malformed response, just print whatever it returned.
+    		error = e.getMessage();
+    	}
         
-        if (contentType.startsWith("application/json"))
-        {
-            JSONObject json = JsonUtils.parseResponse(response);
-            error = JsonUtils.getErrorText(json);
-        }
-        else if (contentType.startsWith("text/xml"))
-        {
-            Document xml = XmlUtils.parseResponse(response);
-            error = XmlUtils.getErrorText(xml);
-        }
-        
-        if (error == null)
-        {
-            error = "HTTP " + response.getStatusLine().getStatusCode();
-        }
-        return error;
+    	if (error == null) {
+    		error = "HTTP " + response.getStatusLine().getStatusCode();
+    	}
+    	return error;
     }
     
     protected String getContentType(HttpResponse response)
@@ -172,6 +171,8 @@ public class BaseHttpTask extends AsyncTask<String, Void, HttpResponse> {
                 {
                     throw new Exception("HTTP " + statusCode);
                 }
+
+                response.getEntity().consumeContent();
             }
             catch (Throwable ex)
             {
@@ -180,13 +181,6 @@ public class BaseHttpTask extends AsyncTask<String, Void, HttpResponse> {
                 handleFailure();
             }
             
-            try
-            {
-                response.getEntity().consumeContent();
-            }
-            catch (IOException ex)
-            {
-            }
         }
         else
         {

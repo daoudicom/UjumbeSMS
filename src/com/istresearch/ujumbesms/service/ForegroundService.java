@@ -16,6 +16,9 @@
 
 package com.istresearch.ujumbesms.service;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -23,12 +26,10 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
+
 import com.istresearch.ujumbesms.App;
 import com.istresearch.ujumbesms.R;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import com.istresearch.ujumbesms.ui.Main;
+import com.istresearch.ujumbesms.ui.LogView;
 
 /*
  *  Service running in foreground to make sure App instance stays 
@@ -161,7 +162,7 @@ public class ForegroundService extends Service {
                     System.currentTimeMillis());
 
             PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-                    new Intent(this, Main.class), 0);
+                    new Intent(this, LogView.class), 0);
 
             CharSequence info = getText(R.string.running);
             notification.setLatestEventInfo(this, info, text, contentIntent);
