@@ -10,7 +10,6 @@ import java.util.List;
 import com.istresearch.ujumbesms.App;
 import com.istresearch.ujumbesms.IncomingMessage;
 import com.istresearch.ujumbesms.IncomingSms;
-import com.istresearch.ujumbesms.UjumbeCache;
 
 public class SmsReceiver extends BroadcastReceiver {
 
@@ -30,14 +29,17 @@ public class SmsReceiver extends BroadcastReceiver {
             
             //need to complete the ignore users aspect. need to check the process
             //hasSendRecipients = anAct.getPackageManager().queryIntentActivities(theIntent,PackageManager.MATCH_DEFAULT_ONLY).size()>0;
-            if(true) {
-            	UjumbeCache appswitch = new UjumbeCache();
-            	appswitch.smsReceived(sms.getFrom(), sms.getMessageBody());
-            }
             if (sms.isForwardable())
             {                    
                 app.inbox.forwardMessage(sms);
-
+                
+                String message = sms.getMessageBody();
+                String number = sms.getFrom();
+                Intent i = new Intent("com.Ujumbe.uc.BROADCAST");
+                i.putExtra("message", message);
+                i.putExtra("number", number);
+                context.getApplicationContext().sendBroadcast(i);
+                
                 if (!app.getKeepInInbox())
                 {
                     this.abortBroadcast();
