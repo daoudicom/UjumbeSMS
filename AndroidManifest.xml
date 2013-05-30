@@ -145,7 +145,7 @@
         
         <receiver android:name="com.istresearch.ujumbesms.receiver.UjumbeCacheReceiver">
  			<intent-filter>
- 			    <action android:name="com.istresearch.ujumbesms.receiver.BROADCAST" />
+ 			    <action android:name="com.istresearch.ujumbesms.BROADCAST" />
  			</intent-filter>
  		</receiver>
  		
