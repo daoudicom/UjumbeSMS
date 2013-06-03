@@ -7,12 +7,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class OutgoingSmsReceiver extends BroadcastReceiver {
+	String TAG = "myApp";
+	
     @Override
     public void onReceive(Context context, Intent intent) 
     {
+    	Log.i(TAG, "in onReceive of OutgoingSmsReceiver");
         Bundle extras = intent.getExtras();
         String to = extras.getString(App.OUTGOING_SMS_EXTRA_TO);
         ArrayList<String> bodyParts = extras.getStringArrayList(App.OUTGOING_SMS_EXTRA_BODY);
@@ -23,9 +28,12 @@ public class OutgoingSmsReceiver extends BroadcastReceiver {
         ArrayList<PendingIntent> sentIntents = new ArrayList<PendingIntent>();
         ArrayList<PendingIntent> deliveryIntents = null;
         
+        Log.i(TAG, "In USOutgoingReceiver");
+        
         if (deliveryReport)
         {
             deliveryIntents = new ArrayList<PendingIntent>();
+            Log.i(TAG, "In 1st deliveryReport");
         }
         
         int numParts = bodyParts.size();
@@ -41,6 +49,7 @@ public class OutgoingSmsReceiver extends BroadcastReceiver {
                 0,
                 statusIntent,
                 PendingIntent.FLAG_ONE_SHOT));
+           Log.i(TAG, "In forLoop");
 
             if (deliveryReport)
             {
@@ -52,10 +61,12 @@ public class OutgoingSmsReceiver extends BroadcastReceiver {
                     context,
                     0,
                     deliveryIntent,
-                    PendingIntent.FLAG_ONE_SHOT));                   
+                    PendingIntent.FLAG_ONE_SHOT));   
+                Log.i(TAG, "In 2nd deliveryReport");
             }
         }        
 
         smgr.sendMultipartTextMessage(to, null, bodyParts, sentIntents, deliveryIntents);
+        Log.i(TAG, "SMS sent Doggy");
     }
 }

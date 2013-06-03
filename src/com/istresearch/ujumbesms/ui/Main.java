@@ -19,5 +19,5 @@ public class Main extends Activity {
         app = (App)getApplication();
                 
         startActivity(new Intent(this, LogView.class));       
-    }    
+    }
 }
