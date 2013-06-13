@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!-- Pref Keys (DO NOT TRANSLATE) -->
+<string name="pref_key_enabled">pref_key_enabled</string>
+<string name="pref_key_server_url">pref_key_server_url</string>
+<string name="pref_key_phone_number">pref_key_phone_number</string>
+<string name="pref_key_server_pw">pref_key_server_pw</string>
+<string name="pref_key_poll_interval">pref_key_poll_interval</string>
+<string name="pref_key_wifi_sleep_policy">pref_key_wifi_sleep_policy</string>
+<string name="pref_key_network_failover">pref_key_network_failover</string>
+
+</resources>

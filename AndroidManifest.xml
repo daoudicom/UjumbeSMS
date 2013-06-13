@@ -27,7 +27,7 @@
 
     <application android:name="com.istresearch.ujumbesms.App"
         android:label="@string/app_name" 
-        android:icon="@drawable/icon" >
+        android:icon="@drawable/ujimbi" >
 
         <activity android:name="com.istresearch.ujumbesms.ui.LogView" 
             android:label="@string/app_name" >
@@ -41,11 +41,17 @@
             android:label="@string/app_name" 
             android:icon="@drawable/icon_question" 
         	android:theme="@android:style/Theme.Dialog"
+        	android:excludeFromRecents="true"
         >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>        
+
+        <activity android:name="com.istresearch.ujumbesms.ui.DebugServerActivity" 
+            android:label="@string/app_name" 
+        	android:excludeFromRecents="true" >
+        </activity>
 
         <activity android:name="com.istresearch.ujumbesms.ui.TestPhoneNumbers" android:label="@string/test_phone_numbers_title">
         </activity>                

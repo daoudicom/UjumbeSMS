@@ -1,15 +1,12 @@
 package com.istresearch.ujumbesms.task;
 
-import android.os.AsyncTask;
-import android.os.Build;
-import com.istresearch.ujumbesms.App;
-import com.istresearch.ujumbesms.JsonUtils;
-import com.istresearch.ujumbesms.XmlUtils;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import org.apache.commons.io.IOUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -19,11 +16,16 @@ import org.apache.http.entity.mime.FormBodyPart;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONObject;
-import org.w3c.dom.Document;
-import com.istresearch.ujumbesms.R;
 
-public class BaseHttpTask extends AsyncTask<String, Void, HttpResponse> {
+import android.os.AsyncTask;
+import android.os.Build;
+
+import com.istresearch.ujumbesms.App;
+import com.istresearch.ujumbesms.JsonUtils;
+import com.istresearch.ujumbesms.R;
+import com.istresearch.ujumbesms.XmlUtils;
+
+abstract public class BaseHttpTask extends AsyncTask<String, Void, HttpResponse> {
        
     protected App app;
     protected String url;    
@@ -119,29 +121,49 @@ public class BaseHttpTask extends AsyncTask<String, Void, HttpResponse> {
         }   
         
         return null;
-    }    
-           
-    protected String getErrorText(HttpResponse response) throws Exception {
-    	String contentType = getContentType(response);
-    	String error = null;
-    
+    }
+
+    /* leaving in for edu-tainment purposes
+	protected String streamToString(InputStream aInputStream) {
+		StringBuffer theStringBuffer = new StringBuffer();
+		BufferedReader theReader = new BufferedReader(new InputStreamReader(aInputStream));
+		String theLine;
+		try {
+			while ((theLine = theReader.readLine()) != null) {
+				theStringBuffer.append(theLine + "\n");
+			}
+		} catch (IOException e) {
+		}
+		return theStringBuffer.toString();
+	}
+	*/
+	
+    protected String getResponseText(HttpResponse aResponse) {
+    	String theResult;
     	try {
-        	if (contentType.startsWith("application/json")) {
-        		JSONObject json = JsonUtils.parseResponse(response);
-        		error = JsonUtils.getErrorText(json);
-        	} else if (contentType.startsWith("text/xml")) {
-        		Document xml = XmlUtils.parseResponse(response);
-        		error = XmlUtils.getErrorText(xml);
+			//theResult = streamToString(aResponse.getEntity().getContent());
+            theResult = IOUtils.toString(aResponse.getEntity().getContent(),"UTF-8");
+    	} catch (Exception e) {
+			theResult = e.getMessage();
+		}
+    	return theResult;
+    }
+    
+    protected String getErrorText(HttpResponse aResponse) {
+    	String theMimeType = getContentType(aResponse);
+    	String theResult = null;
+    	try {
+        	if (theMimeType.startsWith("application/json")) {
+        		theResult = JsonUtils.getErrorText(JsonUtils.parseResponse(aResponse));
+        	} else if (theMimeType.startsWith("text/xml")) {
+        		theResult = XmlUtils.getErrorText(XmlUtils.parseResponse(aResponse.getEntity().getContent()));
+        	} else {
+        		theResult = "HTTP "+aResponse.getStatusLine().getStatusCode();
         	}
     	} catch (Exception e) {
-    		//malformed response, just print whatever it returned.
-    		error = e.getMessage();
+   			theResult = e.getMessage();
     	}
-        
-    	if (error == null) {
-    		error = "HTTP " + response.getStatusLine().getStatusCode();
-    	}
-    	return error;
+    	return theResult;
     }
     
     protected String getContentType(HttpResponse response)
@@ -189,24 +211,10 @@ public class BaseHttpTask extends AsyncTask<String, Void, HttpResponse> {
         }
     }
     
-    protected void handleResponse(HttpResponse response) throws Exception
-    {
-    }
-    
-    protected void handleErrorResponse(HttpResponse response) throws Exception
-    {
-    }        
-    
-    protected void handleFailure()
-    {
-    }            
-
-    protected void handleRequestException(Throwable ex)
-    {       
-    }
-
-    protected void handleResponseException(Throwable ex)
-    {       
-    }    
-        
+    abstract protected void handleResponse(HttpResponse response) throws Exception;
+    abstract protected void handleErrorResponse(HttpResponse response) throws Exception;
+    abstract protected void handleFailure();
+    abstract protected void handleRequestException(Throwable ex);
+    abstract protected void handleResponseException(Throwable ex);
+ 
 }

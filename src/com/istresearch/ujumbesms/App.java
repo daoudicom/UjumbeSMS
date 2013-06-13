@@ -1,5 +1,6 @@
 package com.istresearch.ujumbesms;
 
+import java.lang.ref.WeakReference;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -43,6 +44,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.SpannableStringBuilder;
 import android.util.Log;
+import android.webkit.WebView;
 
 import com.istresearch.ujumbesms.receiver.OutgoingMessagePoller;
 import com.istresearch.ujumbesms.service.EnabledChangedService;
@@ -170,6 +172,12 @@ public final class App extends Application {
     private AmqpConsumer amqpConsumer;
     
     private boolean connectivityError = false;
+    
+    public WeakReference<WebView> mDebugView = null;
+    public boolean isDebugging() {
+    	return true;
+    	//return (mDebugView!=null); //only set by the debugger activity
+    }
     
     @Override
     public void onCreate()

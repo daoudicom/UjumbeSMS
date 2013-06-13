@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+<string name="menu_item_reset_prefs">Reset Settings</string>
+
+<string name="prefscat_server">Server Details</string>
+<string name="prefscat_sms">Messaging Options</string>
+<string name="prefscat_networking">Network Options</string>
+<string name="prefscat_ampq">AMQP (Real-Time Connection)</string>
+
+<string name="pref_title_enabled">Enable UjumbeSMS</string>
+<string name="pref_summaryOn_enabled">New messages will be forwarded.</string>
+<string name="pref_summaryOff_enabled">No messages will be forwarded.</string>
+
+<string name="pref_title_about">About %s</string>
+<string name="pref_summary_about">-{ Version %s }-</string>
+
+<string name="pref_title_server_url">Server URL</string>
+<string name="pref_summary_server_url"></string>
+
+<string name="pref_title_phone_number">Your phone number</string>
+<string name="pref_summary_phone_number"></string>
+
+<string name="pref_title_server_pw">Password</string>
+<string name="pref_summary_server_pw">This needs to match the server setting.</string>
+
+<string name="pref_title_poll_interval">Poll interval</string>
+<string name="pref_summary_poll_interval">This needs to match the server setting.</string>
+
+<string name="pref_title_wifi_sleep_policy">Wi-Fi sleep policy</string>
+<string name="pref_dialog_title_wifi_sleep_policy">Select Policy</string>
+
+<string name="pref_title_network_failover">Network failover</string>
+<string name="pref_summaryOn_network_failover">Automatically switch to mobile data if phone cannot connect to server via Wi-Fi</string>
+<string name="pref_summaryOff_network_failover">Do nothing if phone cannot connect to server via Wi-Fi</string>
+
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+      
+<PreferenceCategory android:title="@string/prefscat_networking">      
+    
+	<CheckBoxPreference android:defaultValue="false" 
+		android:key="@string/pref_key_network_failover" 
+		android:title="@string/pref_title_network_failover" 
+		android:summaryOn="@string/pref_summaryOn_network_failover" 
+		android:summaryOff="@string/pref_summaryOff_network_failover" />
+    
+</PreferenceCategory>    
+
+</PreferenceScreen>

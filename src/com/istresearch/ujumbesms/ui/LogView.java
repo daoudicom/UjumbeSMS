@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
+import android.content.pm.ApplicationInfo;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
@@ -132,12 +133,18 @@ public class LogView extends Activity {
         AppPrefs.setDefaultPrefs(this);
                         
         scrollView = (ScrollView) this.findViewById(R.id.log_scroll);
-        heading = (TextView) this.findViewById(R.id.heading);   
-        info = (TextView) this.findViewById(R.id.info);   
+        heading = (TextView) this.findViewById(R.id.heading);
+        info = (TextView) this.findViewById(R.id.info);
+        View v = findViewById(R.id.button_debug);
+		if ((app.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE)!=0) {
+			v.setVisibility(View.VISIBLE);
+		} else {
+			v.setVisibility(View.GONE);
+		}
         
         updateInfo();
         
-        log = (TextView) this.findViewById(R.id.log);        
+        log = (TextView) this.findViewById(R.id.log);
         log.setMovementMethod(LinkMovementMethod.getInstance());
         
         updateUpgradeButton();
@@ -203,7 +210,9 @@ public class LogView extends Activity {
     
     public void infoClicked(View v)
     {
-        startActivity(new Intent(this, AppPrefs.class));        
+        //RTF: debug
+        app.checkOutgoingMessages();
+        //startActivity(new Intent(this, AppPrefs.class));
     }
     
     @Override
@@ -333,7 +342,7 @@ public class LogView extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-	        case R.id.check_now:              
+	        case R.id.check_now: 
 	            app.checkOutgoingMessages();
 	            return true;
 	        case R.id.retry_now:                            
@@ -349,6 +358,9 @@ public class LogView extends Activity {
 	            app.log("Testing server connection...");
 	            new TestTask().execute();
 	            return true;
+	        case R.id.menu_item_debug:
+	        	startActivity(new Intent(this, DebugServerActivity.class));
+	        	return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
         }
@@ -389,6 +401,10 @@ public class LogView extends Activity {
         retryItem.setTitle("Retry All (" + pendingTasks + ")");
         
         return true;
+    }
+    
+    public void onDebugClicked(View v) {
+    	startActivity(new Intent(this, DebugServerActivity.class));
     }
     
 }

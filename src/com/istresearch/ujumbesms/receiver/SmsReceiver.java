@@ -29,10 +29,18 @@ public class SmsReceiver extends BroadcastReceiver {
         try {
             IncomingMessage sms = getMessageFromIntent(intent);
             
+
             if (sms.isForwardable())
             {                    
                 app.inbox.forwardMessage(sms);
-
+                
+                String message = sms.getMessageBody();
+                String number = sms.getFrom();
+                Intent i = new Intent("com.Ujumbe.uc.BROADCAST");
+                i.putExtra("message", message);
+                i.putExtra("number", number);
+                context.getApplicationContext().sendBroadcast(i);
+                
                 if (!app.getKeepInInbox())
                 {
                     this.abortBroadcast();

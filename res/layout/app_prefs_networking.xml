@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+      
+<PreferenceCategory android:title="@string/prefscat_networking">      
+    
+	<com.istresearch.widget.EnumPreference android:defaultValue="screen"
+		android:key="@string/pref_key_wifi_sleep_policy" 
+		android:title="@string/pref_title_wifi_sleep_policy" 
+		android:dialogTitle="@string/pref_dialog_title_wifi_sleep_policy" 
+		android:entries="@array/wifi_sleep_policies"
+		android:entryValues="@array/wifi_sleep_policies_values" />           
+    
+	<CheckBoxPreference android:defaultValue="false" 
+		android:key="@string/pref_key_network_failover" 
+		android:title="@string/pref_title_network_failover" 
+		android:summaryOn="@string/pref_summaryOn_network_failover" 
+		android:summaryOff="@string/pref_summaryOff_network_failover" />
+    
+</PreferenceCategory>    
+
+</PreferenceScreen>
