@@ -1,18 +1,14 @@
 package com.istresearch.ujumbesms;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import org.apache.http.HttpResponse;
-import org.json.JSONException;
-import org.json.JSONObject;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -20,11 +16,10 @@ import org.xml.sax.SAXException;
 
 public class XmlUtils {
     
-    public static Document parseResponse(HttpResponse response)
+    public static Document parseResponse(InputStream aResponseContent)
             throws IOException, ParserConfigurationException, SAXException {
-        InputStream responseStream = response.getEntity().getContent();
         DocumentBuilder xmlBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-        return xmlBuilder.parse(responseStream);
+        return xmlBuilder.parse(aResponseContent);
     }
 
     public static String getElementText(Element element) {

@@ -1,10 +1,13 @@
 package com.istresearch.ujumbesms;
 
+import org.apache.http.message.BasicNameValuePair;
+
 import android.content.Intent;
 import android.os.SystemClock;
+
 import com.istresearch.ujumbesms.receiver.IncomingMessageRetry;
+import com.istresearch.ujumbesms.task.DebugForwarderTask;
 import com.istresearch.ujumbesms.task.ForwarderTask;
-import org.apache.http.message.BasicNameValuePair;
 
 public abstract class IncomingMessage extends QueuedMessage {
 
@@ -199,11 +202,20 @@ public abstract class IncomingMessage extends QueuedMessage {
     
     protected ForwarderTask getForwarderTask()
     {
-        ForwarderTask task = new ForwarderTask(this,
-            new BasicNameValuePair("message_type", getMessageType()),
-            new BasicNameValuePair("message", getMessageBody()),
-            new BasicNameValuePair("timestamp", "" + getTimestamp())
-        );
+    	ForwarderTask task;
+    	if (!app.isDebugging()) {
+            task = new ForwarderTask(this,
+                    new BasicNameValuePair("message_type", getMessageType()),
+                    new BasicNameValuePair("message", getMessageBody()),
+                    new BasicNameValuePair("timestamp", "" + getTimestamp())
+                );
+    	} else {
+            task = new DebugForwarderTask(this,
+                    new BasicNameValuePair("message_type", getMessageType()),
+                    new BasicNameValuePair("message", getMessageBody()),
+                    new BasicNameValuePair("timestamp", "" + getTimestamp())
+                );
+    	}
         
         if (direction == Direction.Sent)
         {

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<item android:id="@+id/menu_check_now" 
+    android:title="@string/check_now" 
+    android:icon="@drawable/ic_menu_tick" 
+    android:showAsAction="ifRoom"
+/>
+<item android:id="@+id/menu_test" 
+    android:title="@string/test" 
+    android:icon="@drawable/ic_menu_link"
+    android:showAsAction="never"
+/>
+<item android:id="@+id/forward_saved" 
+	android:icon="@drawable/ic_menu_dialog" 
+	android:title="@string/forward_saved" 
+	android:visible="false" 
+/>
+<item android:id="@+id/retry_now"
+	android:icon="@drawable/ic_menu_magnet"
+	android:title="@string/retry_now" 
+/>
+<group android:id="@+id/menu_group_settings" android:orderInCategory="2">
+	<item android:id="@+id/menu_item_settings" tools:ignore="MenuTitle" 
+		android:showAsAction="never"
+	/>
+</group>
+          
+</menu>

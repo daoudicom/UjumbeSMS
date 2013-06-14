@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools" 
+	android:layout_height="fill_parent" android:layout_width="fill_parent"
+	android:background="#333333"
+	tools:ignore="HardcodedText" 
+>
+<RelativeLayout
+  android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <TextView android:id="@+id/app_about_app_version" 
+      android:layout_height="wrap_content" android:layout_width="fill_parent" 
+      android:layout_alignParentTop="true" 
+      android:layout_marginBottom="6dip" 
+      android:text="@string/version_name" 
+      android:gravity="center_horizontal" >
+    </TextView>
+    <LinearLayout android:id="@+id/app_about_layout_links"
+      android:layout_height="wrap_content" android:layout_width="wrap_content" 
+      android:layout_below="@+id/app_about_app_version" 
+      android:layout_centerHorizontal="true" 
+	  android:visibility="gone" 
+    >
+	    <Button android:id="@+id/app_about_button_changelog"
+	        android:layout_height="wrap_content" android:layout_width="wrap_content"
+	        android:drawableTop="@drawable/icon_notice"
+	        android:text="@string/app_about_button_changelog"
+	        android:visibility="visible" 
+	    />
+	    <Button android:id="@+id/app_about_button_faq" 
+			android:layout_height="wrap_content" android:layout_width="wrap_content" 
+			android:text="@string/app_about_button_faq" 
+			android:drawableTop="@drawable/icon_question" 
+	        android:visibility="visible" 
+	    />
+	    <Button android:id="@+id/app_about_button_email" 
+			android:layout_height="wrap_content" android:layout_width="wrap_content" 
+			android:text="@string/app_about_button_email" 
+			android:drawableTop="@drawable/icon_mail" 
+	        android:visibility="visible" 
+	    />
+    </LinearLayout>
+	<TextView android:id="@+id/app_about_text_thanks" 
+	  android:layout_width="wrap_content" android:layout_height="wrap_content" 
+      android:layout_below="@+id/app_about_layout_links" 
+      android:text="@string/app_about_text_thanks" 
+      android:layout_marginTop="6dip" 
+      android:layout_marginLeft="6dip" 
+      android:layout_marginRight="6dip" >
+	</TextView>
+    <TextView android:id="@+id/app_about_text_author" 
+      android:layout_height="wrap_content" android:layout_width="fill_parent" 
+      android:layout_alignRight="@id/app_about_text_thanks" 
+      android:layout_below="@id/app_about_text_thanks" 
+      android:text="The IST Team" 
+      android:gravity="right" 
+      android:typeface="serif" 
+      android:textStyle="italic" 
+      android:layout_marginBottom="12dip" android:layout_marginRight="12dip">
+    </TextView>
+    <FrameLayout android:id="@+id/app_about_decision_bar" 
+      android:layout_height="wrap_content" android:layout_width="wrap_content" 
+      android:layout_below="@+id/app_about_text_author" 
+      android:layout_centerInParent="true" 
+    >
+	    <include android:id="@+id/app_about_button_positive" 
+    	  layout="@layout/button_positive" 
+    	/>
+    </FrameLayout>
+    <RelativeLayout android:id="@+id/app_about_layout_company"
+   	  android:layout_height="wrap_content" android:layout_width="fill_parent"  
+	  android:layout_below="@+id/app_about_decision_bar" 
+      android:layout_marginTop="24dip"
+	>
+    	<ImageView
+    	    android:id="@+id/app_about_ist_logo"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_alignParentTop="true"
+    	    android:layout_centerHorizontal="true"
+    	    android:src="@drawable/emblem_ist_logo" 
+    	    android:contentDescription="app_about_imgdesc_ist_logo"
+    	/>
+    	<TextView
+    	    android:id="@+id/app_about_text_copyright"
+    	    android:layout_width="wrap_content"
+    	    android:layout_height="wrap_content"
+    	    android:layout_below="@+id/app_about_ist_logo"
+    	    android:layout_centerHorizontal="true"
+    	    android:text="@string/app_about_copyright" 
+    	/>
+	</RelativeLayout>
+</RelativeLayout>
+</ScrollView>

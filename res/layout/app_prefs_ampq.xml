@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+      
+<PreferenceCategory android:title="@string/prefscat_ampq">
+    
+    <CheckBoxPreference
+            android:key="amqp_enabled"
+            android:title="Enable AMQP"
+            android:summaryOff="AMQP is disabled"
+            android:summaryOn="AMQP is enabled"
+    ></CheckBoxPreference>
+    
+    <com.istresearch.widget.StringPreference 
+            android:key="amqp_host" 
+            android:title="AMQP Host" 
+            android:inputType="textUri"
+            android:defaultValue=""
+            android:dependency="amqp_enabled"
+    />
+    
+    <com.istresearch.widget.StringPreference 
+            android:key="amqp_port" 
+            android:title="AMQP Port" 
+            android:inputType="number"
+            android:defaultValue="5672"
+            android:dependency="amqp_enabled"
+    />
+    
+    <com.istresearch.widget.StringPreference 
+            android:key="amqp_vhost" 
+            android:title="AMQP Virtual Host" 
+            android:inputType="text"
+            android:defaultValue="/"
+            android:dependency="amqp_enabled"
+    />
+    
+    <CheckBoxPreference
+            android:key="amqp_ssl"
+            android:title="AMQP SSL"
+            android:summaryOff="Off (Plain text)"
+            android:summaryOn="On (Encrypted)"
+            android:dependency="amqp_enabled"
+    ></CheckBoxPreference>
+    
+    <com.istresearch.widget.StringPreference
+            android:key="amqp_user"
+            android:title="AMQP User"
+            android:defaultValue=""
+            android:dependency="amqp_enabled"
+    />
+
+    <com.istresearch.widget.StringPreference
+            android:key="amqp_password"
+            android:title="AMQP Password"
+            android:defaultValue=""
+            android:password="true"
+            android:dependency="amqp_enabled"
+    />    
+    
+    <com.istresearch.widget.StringPreference
+            android:key="amqp_queue"
+            android:title="AMQP Queue Name"
+            android:defaultValue=""
+            android:dependency="amqp_enabled"
+    />
+
+    <com.istresearch.widget.StringPreference 
+            android:key="amqp_heartbeat" 
+            android:title="AMQP Heartbeat (sec)" 
+            android:inputType="number"
+            android:defaultValue="60"
+            android:dependency="amqp_enabled"
+    />
+        
+</PreferenceCategory>    
+
+</PreferenceScreen>

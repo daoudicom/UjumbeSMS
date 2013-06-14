@@ -82,7 +82,7 @@ public abstract class MessagingForwarder extends ListActivity {
                 }                
             }
 
-            public void onNothingSelected(AdapterView parent) {            
+            public void onNothingSelected(AdapterView<?> parent) {            
             }
         });
         

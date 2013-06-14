@@ -1,22 +1,18 @@
 package com.istresearch.ujumbesms.receiver;
 
 import java.util.ArrayList;
-import com.istresearch.ujumbesms.App;
-import com.istresearch.ujumbesms.IncomingSms;
 
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.widget.Toast;
-import com.istresearch.ujumbesms.ui.Prefs;
-import android.app.Activity;
-import com.istresearch.ujumbesms.ui.LogView;
-import com.istresearch.ujumbesms.ui.Main;
+
+import com.istresearch.ujumbesms.App;
+import com.istresearch.ujumbesms.IncomingSms;
 
 public class UjumbeCacheReceiver extends BroadcastReceiver {
   

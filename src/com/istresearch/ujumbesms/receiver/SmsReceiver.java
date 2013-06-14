@@ -1,12 +1,14 @@
 package com.istresearch.ujumbesms.receiver;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
-import java.util.ArrayList;
-import java.util.List;
+
 import com.istresearch.ujumbesms.App;
 import com.istresearch.ujumbesms.IncomingMessage;
 import com.istresearch.ujumbesms.IncomingSms;
@@ -27,8 +29,7 @@ public class SmsReceiver extends BroadcastReceiver {
         try {
             IncomingMessage sms = getMessageFromIntent(intent);
             
-            //need to complete the ignore users aspect. need to check the process
-            //hasSendRecipients = anAct.getPackageManager().queryIntentActivities(theIntent,PackageManager.MATCH_DEFAULT_ONLY).size()>0;
+
             if (sms.isForwardable())
             {                    
                 app.inbox.forwardMessage(sms);

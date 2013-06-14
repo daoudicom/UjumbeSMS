@@ -1,16 +1,19 @@
 package com.istresearch.ujumbesms;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import android.content.SharedPreferences;
+
+import com.istresearch.ujumbesms.ui.AppPrefs;
 
 public class JsonUtils {
 
@@ -95,9 +98,9 @@ public class JsonUtils {
 
         if (settingsObject != null && settingsObject.length() > 0)
         {
-            SharedPreferences.Editor settings = PreferenceManager.getDefaultSharedPreferences(app).edit();
+            SharedPreferences.Editor settings = AppPrefs.getPrefs(app).edit();
             
-            Iterator it = settingsObject.keys();
+            Iterator<?> it = settingsObject.keys();
 
             while (it.hasNext())
             {

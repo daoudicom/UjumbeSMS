@@ -1,29 +1,34 @@
 package com.istresearch.ujumbesms.ui;
 
-import com.istresearch.ujumbesms.task.HttpTask;
+import java.util.List;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.message.BasicNameValuePair;
+
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.*;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
+import android.content.pm.ApplicationInfo;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import org.apache.http.HttpResponse;
-import org.apache.http.message.BasicNameValuePair;
+
 import com.istresearch.ujumbesms.App;
 import com.istresearch.ujumbesms.R;
-import java.util.ArrayList;
-import java.util.List;
+import com.istresearch.ujumbesms.task.HttpTask;
 
 public class LogView extends Activity {   
 	
@@ -124,17 +129,22 @@ public class LogView extends Activity {
         app = (App) getApplication();
         
         setContentView(R.layout.log_view);
-        PreferenceManager.setDefaultValues(this, R.xml.prefs, false);               
+        
+        AppPrefs.setDefaultPrefs(this);
                         
         scrollView = (ScrollView) this.findViewById(R.id.log_scroll);
-        
-        heading = (TextView) this.findViewById(R.id.heading);   
-        info = (TextView) this.findViewById(R.id.info);   
+        heading = (TextView) this.findViewById(R.id.heading);
+        info = (TextView) this.findViewById(R.id.info);
+        View v = findViewById(R.id.button_debug);
+		if ((app.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE)!=0) {
+			v.setVisibility(View.VISIBLE);
+		} else {
+			v.setVisibility(View.GONE);
+		}
         
         updateInfo();
         
-        log = (TextView) this.findViewById(R.id.log);        
-        
+        log = (TextView) this.findViewById(R.id.log);
         log.setMovementMethod(LinkMovementMethod.getInstance());
         
         updateUpgradeButton();
@@ -146,10 +156,12 @@ public class LogView extends Activity {
 
         if (savedInstanceState == null)
         {
-            if (app.isUpgradeAvailable())
+            /*
+        	if (app.isUpgradeAvailable())
             {
                 showUpgradeDialog();         
             }
+            */
         }
         else
         {
@@ -198,7 +210,9 @@ public class LogView extends Activity {
     
     public void infoClicked(View v)
     {
-        startActivity(new Intent(this, Prefs.class));        
+        //RTF: debug
+        app.checkOutgoingMessages();
+        //startActivity(new Intent(this, AppPrefs.class));
     }
     
     @Override
@@ -285,7 +299,7 @@ public class LogView extends Activity {
                 public void onClick(DialogInterface dialog, int i)
                 {
                     curDialog = NO_DIALOG;
-                    startActivity(new Intent(LogView.this, Prefs.class));
+                    startActivity(new Intent(LogView.this, AppPrefs.class));
                 }
             })                
             .setOnCancelListener(new DismissDialogListener())
@@ -328,37 +342,55 @@ public class LogView extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-        case R.id.settings:
-            startActivity(new Intent(this, Prefs.class));
-            return true;
-        case R.id.check_now:              
-            app.checkOutgoingMessages();
-            return true;
-        case R.id.retry_now:                            
-            app.retryStuckMessages();
-            return true; 
-        case R.id.forward_saved:
-            startActivity(new Intent(this, MessagingSmsInbox.class));
-            return true;
-        case R.id.pending:
-            startActivity(new Intent(this, PendingMessages.class));
-            return true;
-        case R.id.test:            
-            app.log("Testing server connection...");
-            new TestTask().execute();
-            return true;
-        default:
-            return super.onOptionsItemSelected(item);
+	        case R.id.check_now: 
+	            app.checkOutgoingMessages();
+	            return true;
+	        case R.id.retry_now:                            
+	            app.retryStuckMessages();
+	            return true; 
+	        case R.id.forward_saved:
+	            startActivity(new Intent(this, MessagingSmsInbox.class));
+	            return true;
+	        case R.id.pending:
+	            startActivity(new Intent(this, PendingMessages.class));
+	            return true;
+	        case R.id.test:            
+	            app.log("Testing server connection...");
+	            new TestTask().execute();
+	            return true;
+	        case R.id.menu_item_debug:
+	        	startActivity(new Intent(this, DebugServerActivity.class));
+	        	return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
         }
     }        
     
     // first time the Menu key is pressed
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.mainmenu, menu);
-        
-        return(true);
+    public boolean onCreateOptionsMenu(Menu aMenu) {
+        getMenuInflater().inflate(R.menu.options_log_view, aMenu);
+		
+        Intent prefsActivity = new Intent(this,AppPrefs.class);
+		prefsActivity.addCategory(Intent.CATEGORY_PREFERENCE);
+		prefsActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+	    // Get the settings activity and use most of it's definitions to auto-handle menu item
+    	MenuItem theSettingsTemplate = aMenu.findItem(R.id.menu_item_settings);
+    	aMenu.removeItem(R.id.menu_item_settings);
+		aMenu.addIntentOptions(
+			 theSettingsTemplate.getGroupId(),	// Menu group to which new items will be added
+			 theSettingsTemplate.getItemId(),	// Unique item ID
+			 theSettingsTemplate.getOrder(),		// Order for the item
+		     this.getComponentName(),	// The current Activity name
+		     null,						// Specific items to place first (none)
+		     prefsActivity,				// Intent created above that describes our requirements
+		     0,							// Additional flags to control items (none)
+		     null);	// Array of MenuItems that correlate to specific items (none)
+		//Android Market will not allow android drawables as part of the Manifest xml
+		MenuItem theSettingsItem = aMenu.findItem(R.id.menu_item_settings);
+		theSettingsItem.setIcon(android.R.drawable.ic_menu_preferences);
+		
+		return true;
     }
 
     @Override
@@ -369,6 +401,10 @@ public class LogView extends Activity {
         retryItem.setTitle("Retry All (" + pendingTasks + ")");
         
         return true;
+    }
+    
+    public void onDebugClicked(View v) {
+    	startActivity(new Intent(this, DebugServerActivity.class));
     }
     
 }
