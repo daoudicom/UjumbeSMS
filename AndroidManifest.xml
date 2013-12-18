@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>        
 
-        <activity android:name="com.istresearch.app.AppAbout" 
+        <activity android:name="com.blackmoonit.app.AppAbout" 
             android:label="@string/app_name" 
             android:icon="@drawable/icon_question" 
         	android:theme="@android:style/Theme.Dialog"

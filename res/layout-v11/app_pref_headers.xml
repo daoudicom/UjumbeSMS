@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <preference-headers xmlns:android="http://schemas.android.com/apk/res/android" >
 
-<header android:fragment="com.istresearch.app.AppPreferenceBase$PreferencePane"
+<header android:fragment="com.blackmoonit.app.AppPreferenceBase$PreferencePane"
 	android:title="@string/prefscat_server"
 >
 	<!--  android:icon="@android:drawable/ic_menu_sort_by_size" -->
@@ -10,19 +10,19 @@
 	<extra android:name="layout-res" android:value="app_prefs_server" />
 </header>    	
 
-<header android:fragment="com.istresearch.app.AppPreferenceBase$PreferencePane"
+<header android:fragment="com.blackmoonit.app.AppPreferenceBase$PreferencePane"
 	android:title="@string/prefscat_sms"
 >
 	<extra android:name="layout-res" android:value="app_prefs_sms" />
 </header>
 
-<header android:fragment="com.istresearch.app.AppPreferenceBase$PreferencePane"
+<header android:fragment="com.blackmoonit.app.AppPreferenceBase$PreferencePane"
 	android:title="@string/prefscat_networking"
 >
 	<extra android:name="layout-res" android:value="app_prefs_networking" />
 </header>
 
-<header android:fragment="com.istresearch.app.AppPreferenceBase$PreferencePane"
+<header android:fragment="com.blackmoonit.app.AppPreferenceBase$PreferencePane"
 	android:title="@string/prefscat_ampq"
 >
 	<extra android:name="layout-res" android:value="app_prefs_ampq" />
@@ -34,7 +34,7 @@
 >
 	<intent android:action="android.intent.action.VIEW" 
 		android:targetPackage="com.istresearch.ujumbesms"
-		android:targetClass="com.istresearch.app.AppAbout" 
+		android:targetClass="com.blackmoonit.app.AppAbout" 
 	/>
 </header>
 

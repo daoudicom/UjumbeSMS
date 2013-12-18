@@ -10,7 +10,7 @@
             android:summaryOn="AMQP is enabled"
     ></CheckBoxPreference>
     
-    <com.istresearch.widget.StringPreference 
+    <com.blackmoonit.widget.StringPreference 
             android:key="amqp_host" 
             android:title="AMQP Host" 
             android:inputType="textUri"
@@ -18,7 +18,7 @@
             android:dependency="amqp_enabled"
     />
     
-    <com.istresearch.widget.StringPreference 
+    <com.blackmoonit.widget.StringPreference 
             android:key="amqp_port" 
             android:title="AMQP Port" 
             android:inputType="number"
@@ -26,7 +26,7 @@
             android:dependency="amqp_enabled"
     />
     
-    <com.istresearch.widget.StringPreference 
+    <com.blackmoonit.widget.StringPreference 
             android:key="amqp_vhost" 
             android:title="AMQP Virtual Host" 
             android:inputType="text"
@@ -42,14 +42,14 @@
             android:dependency="amqp_enabled"
     ></CheckBoxPreference>
     
-    <com.istresearch.widget.StringPreference
+    <com.blackmoonit.widget.StringPreference
             android:key="amqp_user"
             android:title="AMQP User"
             android:defaultValue=""
             android:dependency="amqp_enabled"
     />
 
-    <com.istresearch.widget.StringPreference
+    <com.blackmoonit.widget.StringPreference
             android:key="amqp_password"
             android:title="AMQP Password"
             android:defaultValue=""
@@ -57,14 +57,14 @@
             android:dependency="amqp_enabled"
     />    
     
-    <com.istresearch.widget.StringPreference
+    <com.blackmoonit.widget.StringPreference
             android:key="amqp_queue"
             android:title="AMQP Queue Name"
             android:defaultValue=""
             android:dependency="amqp_enabled"
     />
 
-    <com.istresearch.widget.StringPreference 
+    <com.blackmoonit.widget.StringPreference 
             android:key="amqp_heartbeat" 
             android:title="AMQP Heartbeat (sec)" 
             android:inputType="number"

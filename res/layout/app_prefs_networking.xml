@@ -3,7 +3,7 @@
       
 <PreferenceCategory android:title="@string/prefscat_networking">      
     
-	<com.istresearch.widget.EnumPreference android:defaultValue="screen"
+	<com.blackmoonit.widget.EnumPreference android:defaultValue="screen"
 		android:key="@string/pref_key_wifi_sleep_policy" 
 		android:title="@string/pref_title_wifi_sleep_policy" 
 		android:dialogTitle="@string/pref_dialog_title_wifi_sleep_policy" 

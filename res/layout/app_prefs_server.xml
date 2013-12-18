@@ -11,26 +11,26 @@
 
 <PreferenceCategory android:title="@string/prefscat_server">
       
-    <com.istresearch.widget.UriPreference android:defaultValue="" 
+    <com.blackmoonit.widget.UriPreference android:defaultValue="" 
         android:key="pref_key_server_url"
         android:title="@string/pref_title_server_url" 
     />
 
-    <com.istresearch.widget.StringPreference android:defaultValue="" 
+    <com.blackmoonit.widget.StringPreference android:defaultValue="" 
 		android:key="@string/pref_key_server_pw" 
 		android:title="@string/pref_title_server_pw" 
 		android:summary="@string/pref_summary_server_pw" 
 		android:inputType="textPassword" 
 	/>
     
-    <com.istresearch.widget.EnumPreference android:defaultValue="60" 
+    <com.blackmoonit.widget.EnumPreference android:defaultValue="60" 
 		android:key="@string/pref_key_poll_interval" 
         android:title="@string/pref_title_poll_interval" 
         android:entries="@array/check_intervals"
         android:entryValues="@array/check_intervals_values" 
     />
     
-    <com.istresearch.widget.StringPreference android:defaultValue="" 
+    <com.blackmoonit.widget.StringPreference android:defaultValue="" 
 		android:key="@string/pref_key_phone_number" 
         android:title="@string/pref_title_phone_number" 
         android:inputType="phone" 

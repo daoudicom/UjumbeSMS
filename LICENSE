@@ -42,3 +42,7 @@ org.envaya.sms.ForegroundService include code from Android,
 server/php/example/www/test.html uses code from crypto-js,
     Copyright (c) 2011, Jeff Mott,
     released under new BSD license
+    
+androidBits Mobile Library
+	Copyright (c) 2013 Blackmoon Info Tech Services
+	released under MIT License

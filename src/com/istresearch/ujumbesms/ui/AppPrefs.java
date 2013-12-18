@@ -9,7 +9,7 @@ import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.istresearch.app.AppPreferenceBase;
+import com.blackmoonit.app.AppPreferenceBase;
 import com.istresearch.ujumbesms.App;
 import com.istresearch.ujumbesms.R;
 
