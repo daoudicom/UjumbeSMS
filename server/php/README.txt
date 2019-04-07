@@ -27,4 +27,5 @@ example/www/test.html allows you to simulate the HTTP requests made by EnvayaSMS
 in your browser without actually using the EnvayaSMS app.
 If you're using server.php, just go to http://<your_ip_address>:8002/test.html
 
-See EnvayaSMS.php and example/www/gateway.php 
+See EnvayaSMS.php and example/www/gateway.php.
+
